@@ -10,20 +10,6 @@ async def telegram_webhook(
     request: Request,
     x_telegram_bot_api_secret_token: str = Header(None)
 ):
-    logger.info(
-        "Received webhook secret header: %s",
-        bool(x_telegram_bot_api_secret_token)
-    )
-
-    logger.info(
-        "Configured webhook secret: %s",
-        bool(settings.BOT_WEBHOOK_SECRET)
-    )
-
-    logger.info(
-        "Webhook secrets match: %s",
-        x_telegram_bot_api_secret_token == settings.BOT_WEBHOOK_SECRET
-    )
     # Validate Telegram's webhook secret.
     if x_telegram_bot_api_secret_token != settings.BOT_WEBHOOK_SECRET:
         raise HTTPException(
