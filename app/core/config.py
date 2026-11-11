@@ -1,4 +1,5 @@
 from pydantic_settings import BaseSettings
+from logging  import Logger, basicConfig, INFO, getLogger
 from dotenv import load_dotenv
 from os import getenv
 
@@ -7,7 +8,7 @@ load_dotenv()
 class Settings(BaseSettings):
     # Project Information
     PROJECT_NAME: str = "Vantly"
-    PROJECT_VERSION: str = "0.0.1"
+    PROJECT_VERSION: str = "0.0.2"
     
     # API Settings
     API_V1_STR: str = "api/v1"

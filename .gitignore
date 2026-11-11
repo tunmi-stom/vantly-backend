@@ -3,6 +3,7 @@ venv/
 
 # .env file
 .env
+.env.*
 
 # .env.example file
 !.env.example
