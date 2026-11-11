@@ -8,7 +8,7 @@ load_dotenv()
 class Settings(BaseSettings):
     # Project Information
     PROJECT_NAME: str = "Vantly"
-    PROJECT_VERSION: str = "0.0.2"
+    PROJECT_VERSION: str = "0.1.0"
     
     # API Settings
     API_V1_STR: str = "api/v1"
