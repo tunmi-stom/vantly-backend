@@ -32,8 +32,8 @@ class Dispatcher:
         await handle_research(chat_id)
     
     @staticmethod
-    async def bot_send(chat_id: int):
-        await handle_send(chat_id)
+    async def bot_send(chat_id: int, text: str):
+        await handle_send(chat_id, text)
 class ChatHandler:
     @staticmethod
     async def message_handler(data: dict):
@@ -62,7 +62,7 @@ class ChatHandler:
             await Dispatcher.bot_research(chat_id)
         
         else:
-            await Dispatcher.bot_send(chat_id)
+            await Dispatcher.bot_send(chat_id, text)
     
     @staticmethod
     async def callback_handler(data: dict):
