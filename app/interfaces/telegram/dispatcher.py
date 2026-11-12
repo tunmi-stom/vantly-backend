@@ -62,7 +62,7 @@ class ChatHandler:
             await Dispatcher.bot_research(chat_id)
         
         else:
-            await Dispatcher.bot_send(chat_id, text)
+            await Dispatcher.bot_send(chat_id)
     
     @staticmethod
     async def callback_handler(data: dict):
