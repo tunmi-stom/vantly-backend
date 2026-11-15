@@ -1,4 +1,5 @@
 from app.interfaces.telegram.client import send_message
+from app.interfaces.telegram.keyboard.reply import start_keyboard_payload
 
 async def handle_start(chat_id: int, first_name: str):
     message = (
@@ -9,4 +10,4 @@ async def handle_start(chat_id: int, first_name: str):
         "See /help for more information.\n\n"
         "Thank you!"
     )
-    await send_message(chat_id, message)
+    await send_message(chat_id, message, start_keyboard_payload)
