@@ -73,4 +73,4 @@ about_keyboard = ReplyKeyboardMarkup(
     ], resize_keyboard=True
 )
 # Convert topics keyboard to JSONdict
-about_keyboard_payload = topic_keyboard.to_dict()
+about_keyboard_payload = about_keyboard.to_dict()
