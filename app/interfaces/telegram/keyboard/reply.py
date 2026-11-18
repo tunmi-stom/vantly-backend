@@ -35,6 +35,11 @@ user_start_keyboard = ReplyKeyboardMarkup([
                 "Preferences"
             ),
             KeyboardButton(
+                "Join Beta"
+            )
+        ],
+        [
+            KeyboardButton(
                 "More Info"
             ),
             KeyboardButton(
