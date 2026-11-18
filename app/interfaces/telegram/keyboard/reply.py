@@ -5,20 +5,20 @@ start_keyboard = ReplyKeyboardMarkup([
         [
             KeyboardButton(
             "Research a Topic"
-        )
-    ],
-        [
-            KeyboardButton(
-                "Preferences"
             ),
+            KeyboardButton(
+                "Join Beta"
+            )
+        ],
+        [
             KeyboardButton(
                 "More Info"
             ),
             KeyboardButton(
                 "Help"
             )
-    ]
-], resize_keyboard=True
+        ]   
+    ], resize_keyboard=True
 )
 # Convert to JSONDict for Telegram's API
 start_keyboard_payload = start_keyboard.to_dict()
