@@ -35,11 +35,6 @@ user_start_keyboard = ReplyKeyboardMarkup([
                 "Preferences"
             ),
             KeyboardButton(
-                "Join Beta"
-            )
-        ],
-        [
-            KeyboardButton(
                 "More Info"
             ),
             KeyboardButton(
@@ -69,10 +64,7 @@ about_keyboard = ReplyKeyboardMarkup(
     [
         [
             KeyboardButton(
-                "Visit Documentations Page",
-                web_app=WebAppInfo(
-                    url="https://github.com/tunmi-stom/vantly-backend/blob/main/README.md"
-                )
+                "Visit Documentations Page"
             )
         ]
     ], resize_keyboard=True
