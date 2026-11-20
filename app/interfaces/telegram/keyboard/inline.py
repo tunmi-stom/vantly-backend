@@ -1,6 +1,5 @@
 from telegram import (
-    InlineKeyboardMarkup, InlineKeyboardButton,
-    CallbackQuery
+    InlineKeyboardMarkup, InlineKeyboardButton
 )
 
 # For the /start command
@@ -8,11 +7,11 @@ start_keyboard = InlineKeyboardMarkup([
         [
             InlineKeyboardButton(
                 "Create an Account",
-                callback_data=CallbackQuery("start:register")
+                callback_data="start:register"
             ),
             InlineKeyboardButton(
                 "Account Login",
-                callback_data=CallbackQuery("start:login")
+                callback_data="start:login"
             )
         ]   
     ], resize_keyboard=True
