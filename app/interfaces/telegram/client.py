@@ -38,11 +38,13 @@ async def send_message(
 async def edit_message(
     chat_id: int, 
     text: str, 
+    message_id: str,
     reply_markup: dict | None = None
 ):
     payload = {
         "chat_id": chat_id,
-        "text": text
+        "text": text,
+        "message_id": message_id
     }
     
     if reply_markup:

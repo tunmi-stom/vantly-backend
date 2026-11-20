@@ -73,10 +73,12 @@ class ChatHandler:
         # Isolate the callback_data
         callback_data: str = data.get("data")
         
-        # Get the params from the message
         msg: dict = data.get("message")
         
+        # Get the params from the message
+        msg_id = data.get("message_id")
         chat_id: str = msg["chat"]["id"]
+        
         match callback_data:
             case "start:register":
                 # For testing
