@@ -38,16 +38,3 @@ topic_keyboard = ReplyKeyboardMarkup(
 )
 # Convert topics keyboard to JSONdict
 topic_keyboard_payload = topic_keyboard.to_dict()
-
-# For the /about keyboard
-about_keyboard = ReplyKeyboardMarkup(
-    [
-        [
-            KeyboardButton(
-                "Visit Documentations Page"
-            )
-        ]
-    ], resize_keyboard=True
-)
-# Convert topics keyboard to JSONdict
-about_keyboard_payload = about_keyboard.to_dict()
