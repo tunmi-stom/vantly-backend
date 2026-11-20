@@ -1,5 +1,4 @@
 from app.interfaces.telegram.client import send_message
-from app.interfaces.telegram.keyboard.reply import about_keyboard_payload
 
 async def handle_about(chat_id: int):
     message = (
@@ -7,4 +6,4 @@ async def handle_about(chat_id: int):
         "This is a work in progress.\n\n"
         "See /help for more information.\n\n"
     )
-    await send_message(chat_id, message, about_keyboard_payload)
+    await send_message(chat_id, message)
