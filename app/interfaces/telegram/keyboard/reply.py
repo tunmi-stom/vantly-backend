@@ -1,24 +1,4 @@
-from telegram import KeyboardButton, ReplyKeyboardMarkup, WebAppInfo
-
-# For the /start command
-start_keyboard = ReplyKeyboardMarkup([
-        [
-            KeyboardButton(
-                "Join Beta"
-            )
-        ],
-        [
-            KeyboardButton(
-                "More Info"
-            ),
-            KeyboardButton(
-                "Help"
-            )
-        ]   
-    ], resize_keyboard=True
-)
-# Convert to JSONDict for Telegram's API
-start_keyboard_payload = start_keyboard.to_dict()
+from telegram import KeyboardButton, ReplyKeyboardMarkup
 
 # For registered users
 user_start_keyboard = ReplyKeyboardMarkup([
