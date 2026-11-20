@@ -76,7 +76,7 @@ class ChatHandler:
         msg: dict = data.get("message")
         
         # Get the params from the message
-        msg_id = data.get("message_id")
+        msg_id = msg.get("message_id")
         chat_id: str = msg["chat"]["id"]
         
         match callback_data:
