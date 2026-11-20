@@ -5,6 +5,8 @@ from .handlers.topics import handle_topics
 from .handlers.research import handle_research
 from .handlers.settings import handle_settings
 from .handlers.about import handle_about
+# Handling testing
+from .client import send_message
 
 class Dispatcher:
     @staticmethod
@@ -43,22 +45,22 @@ class ChatHandler:
         text: str = msg.get("text", "")
         first_name: str = msg["from"].get("first_name")
         
-        if text.startswith("/start"):
+        if text == "/start":
             await Dispatcher.bot_start(chat_id, first_name)
         
-        elif text.startswith("/help"):
+        elif text == "/help" or text == "Help":
             await Dispatcher.bot_help(chat_id)
         
-        elif text.startswith("/about"):
+        elif text == "/about" or text == "More Info":
             await Dispatcher.bot_about(chat_id)
         
-        elif text.startswith("/settings"):
+        elif text == "/settings" or text == "Preferences":
             await Dispatcher.bot_settings(chat_id)
         
-        elif text.startswith("/topics"):
+        elif text == "/topics":
             await Dispatcher.bot_topics(chat_id)
         
-        elif text.startswith("/research"):
+        elif text == "/research":
             await Dispatcher.bot_research(chat_id)
         
         else:
@@ -68,9 +70,14 @@ class ChatHandler:
     async def callback_handler(data: dict):
         callback_data = data.get("data")
         match callback_data:
-            case "settings:setalias":
+            case "start:register":
+                # For testing
+                # await send_message(chat_id, "Email registration functionality not implemented.")
                 pass
-            case "settings:subscription":
+                
+            case "start:login":
+                # For testing
+                # await send_message(chat_id, "Login functionality not implemented.")
                 pass
             
 async def dispatch(update: dict):
