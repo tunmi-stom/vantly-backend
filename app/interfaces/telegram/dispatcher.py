@@ -83,12 +83,12 @@ class ChatHandler:
             case "start:register":
                 # For testing
                 new_message = "Registration functionality not implemented."
-                await edit_message(chat_id, new_message)
+                await edit_message(chat_id, new_message, msg_id)
                 
             case "start:login":
                 # For testing
                 new_message = "Login functionality not implemented."
-                await edit_message(chat_id, new_message)
+                await edit_message(chat_id, new_message, msg_id)
             
 async def dispatch(update: dict):
     if "message" in update:
