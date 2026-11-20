@@ -14,7 +14,7 @@ start_keyboard = InlineKeyboardMarkup([
                 callback_data="start:login"
             )
         ]   
-    ], resize_keyboard=True
+    ]
 )
 # Convert to JSONDict for Telegram's API
 start_keyboard_payload = start_keyboard.to_dict()
