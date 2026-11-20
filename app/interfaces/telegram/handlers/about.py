@@ -1,5 +1,5 @@
 from app.interfaces.telegram.client import send_message
-from app.interfaces.telegram.keyboard.reply import about_keyboard_payload
+from app.interfaces.telegram.keyboard.inline import about_keyboard_payload
 
 async def handle_about(chat_id: int):
     message = (
