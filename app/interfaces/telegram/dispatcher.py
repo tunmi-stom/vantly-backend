@@ -6,7 +6,7 @@ from .handlers.research import handle_research
 from .handlers.settings import handle_settings
 from .handlers.about import handle_about
 # Handling testing
-from .client import send_message
+from .client import edit_message
 
 class Dispatcher:
     @staticmethod
@@ -38,8 +38,8 @@ class Dispatcher:
         await handle_send(chat_id, text)
 class ChatHandler:
     @staticmethod
-    async def message_handler(data: dict):
-        msg = data.get("message")
+    async def message_handler(update: dict):
+        msg = update.get("message")
         
         chat_id: int = msg["chat"]["id"]
         text: str = msg.get("text", "")
@@ -67,18 +67,26 @@ class ChatHandler:
             await Dispatcher.bot_send(chat_id, text)
     
     @staticmethod
-    async def callback_handler(data: dict):
-        callback_data = data.get("data")
+    async def callback_handler(update: dict):
+        data: dict = update.get("callback_query")
+        
+        # Isolate the callback_data
+        callback_data: str = data.get("data")
+        
+        # Get the params from the message
+        msg: dict = data.get("message")
+        
+        chat_id: str = msg["chat"]["id"]
         match callback_data:
             case "start:register":
                 # For testing
-                # await send_message(chat_id, "Email registration functionality not implemented.")
-                pass
+                new_message = "Registration functionality not implemented."
+                await edit_message(chat_id, new_message)
                 
             case "start:login":
                 # For testing
-                # await send_message(chat_id, "Login functionality not implemented.")
-                pass
+                new_message = "Login functionality not implemented."
+                await edit_message(chat_id, new_message)
             
 async def dispatch(update: dict):
     if "message" in update:
