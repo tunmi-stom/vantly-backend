@@ -38,7 +38,7 @@ async def send_message(
 async def edit_message(
     chat_id: int, 
     text: str, 
-    message_id: str,
+    message_id: int,
     reply_markup: dict | None = None
 ):
     payload = {
