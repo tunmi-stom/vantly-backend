@@ -5,6 +5,8 @@ from .handlers.topics import handle_topics
 from .handlers.research import handle_research
 from .handlers.settings import handle_settings
 from .handlers.about import handle_about
+# Handling testing
+from .client import edit_message
 
 class Dispatcher:
     @staticmethod
@@ -36,42 +38,67 @@ class Dispatcher:
         await handle_send(chat_id, text)
 class ChatHandler:
     @staticmethod
-    async def message_handler(data: dict):
-        msg = data.get("message")
+    async def message_handler(update: dict):
+        msg = update.get("message")
         
         chat_id: int = msg["chat"]["id"]
         text: str = msg.get("text", "")
         first_name: str = msg["from"].get("first_name")
         
-        if text.startswith("/start"):
+        if text == "/start":
             await Dispatcher.bot_start(chat_id, first_name)
         
-        elif text.startswith("/help"):
+        elif text == "/help" or text == "Help":
             await Dispatcher.bot_help(chat_id)
         
-        elif text.startswith("/about"):
+        elif text == "/about" or text == "More Info":
             await Dispatcher.bot_about(chat_id)
         
-        elif text.startswith("/settings"):
+        elif text == "/settings" or text == "Preferences":
             await Dispatcher.bot_settings(chat_id)
         
-        elif text.startswith("/topics"):
+        elif text == "/topics":
             await Dispatcher.bot_topics(chat_id)
         
-        elif text.startswith("/research"):
+        elif text == "/research":
             await Dispatcher.bot_research(chat_id)
         
         else:
             await Dispatcher.bot_send(chat_id, text)
     
     @staticmethod
-    async def callback_handler(data: dict):
-        callback_data = data.get("data")
+    async def callback_handler(update: dict):
+        data: dict = update.get("callback_query")
+        
+        # Isolate the callback_data
+        callback_data: str = data.get("data")
+        
+        msg: dict = data.get("message")
+        
+        # Get the params from the message
+        msg_id = msg.get("message_id")
+        chat_id: str = msg["chat"]["id"]
+        
         match callback_data:
-            case "settings:setalias":
-                pass
-            case "settings:subscription":
-                pass
+            case "start:register":
+                new_message = (
+                    "Registration functionality not implemented.\n\n"
+                    "This is a work in progress.\n"
+                    "Follow the development:\n"
+                    "https://github.com/tunmi-stom/vantly-backend\n\n"
+                    "See /help for more information.\n\n"
+                )
+                await edit_message(chat_id, new_message, msg_id)
+                
+            case "start:login":
+                new_message = (
+                    "Login functionality not implemented."
+                    "This is a work in progress.\n"
+                    "Follow the development:\n"
+                    "https://github.com/tunmi-stom/vantly-backend\n\n"
+                    "See /help for more information.\n\n"
+                )
+                await edit_message(chat_id, new_message, msg_id)
             
 async def dispatch(update: dict):
     if "message" in update:
