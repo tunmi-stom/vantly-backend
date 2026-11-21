@@ -22,7 +22,7 @@ async def handle_email_registration(chat_id: int, msg_id: int):
         "https://github.com/tunmi-stom/vantly-backend\n\n"
         "See /help for more information.\n\n"
     )
-    await edit_message(chat_id, new_message, msg_id, start_keyboard_payload)
+    await edit_message(chat_id, new_message, msg_id)
     
 # Handle email login 
 async def handle_email_login(chat_id: int, msg_id: int):
@@ -33,4 +33,4 @@ async def handle_email_login(chat_id: int, msg_id: int):
         "https://github.com/tunmi-stom/vantly-backend\n\n"
         "See /help for more information.\n\n"
     )
-    await edit_message(chat_id, new_message, msg_id, start_keyboard_payload)
+    await edit_message(chat_id, new_message, msg_id)

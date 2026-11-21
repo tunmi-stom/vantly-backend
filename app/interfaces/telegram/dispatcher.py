@@ -77,7 +77,7 @@ class ChatHandler:
         
         # Get the params from the message
         msg_id = msg.get("message_id")
-        chat_id: str = msg["chat"]["id"]
+        chat_id: int = msg["chat"]["id"]
         
         match callback_data:
             case "start:register":
