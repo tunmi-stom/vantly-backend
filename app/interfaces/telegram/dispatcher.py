@@ -81,13 +81,23 @@ class ChatHandler:
         
         match callback_data:
             case "start:register":
-                # For testing
-                new_message = "Registration functionality not implemented."
+                new_message = (
+                    "Registration functionality not implemented.\n\n"
+                    "This is a work in progress.\n"
+                    "Follow the development:\n"
+                    "https://github.com/tunmi-stom/vantly-backend\n\n"
+                    "See /help for more information.\n\n"
+                )
                 await edit_message(chat_id, new_message, msg_id)
                 
             case "start:login":
-                # For testing
-                new_message = "Login functionality not implemented."
+                new_message = (
+                    "Login functionality not implemented."
+                    "This is a work in progress.\n"
+                    "Follow the development:\n"
+                    "https://github.com/tunmi-stom/vantly-backend\n\n"
+                    "See /help for more information.\n\n"
+                )
                 await edit_message(chat_id, new_message, msg_id)
             
 async def dispatch(update: dict):
