@@ -6,7 +6,7 @@ from telegram import (
 start_keyboard = InlineKeyboardMarkup([
         [
             InlineKeyboardButton(
-                "Create an Account",
+                "Register",
                 callback_data="start:register"
             ),
             InlineKeyboardButton(
@@ -25,7 +25,7 @@ about_keyboard = InlineKeyboardMarkup(
         [
             InlineKeyboardButton(
                 "Visit Documentations Page",
-                callback_data="docs:url"
+                url="https://github.com/tunmi-stom/vantly-backend/blob/main/README.md"
             )
         ]
     ]
