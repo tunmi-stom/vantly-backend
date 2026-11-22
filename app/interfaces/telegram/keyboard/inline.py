@@ -32,3 +32,33 @@ about_keyboard = InlineKeyboardMarkup(
 )
 # Convert topics keyboard to JSONdict
 about_keyboard_payload = about_keyboard.to_dict()
+
+# Keyboard for the /settings command
+settings_keyboard = InlineKeyboardMarkup([
+    [
+        InlineKeyboardButton(
+            "Research Summary Depth",
+            callback_data="settings:research-summary-depth"
+        )
+    ],
+    [
+        InlineKeyboardButton(
+            "Report Presentation",
+            callback_data="settings:research-presentation"
+        )
+    ],
+    [
+        InlineKeyboardButton(
+            "Language",
+            callback_data="settings:language"
+        )
+    ],
+    [
+        InlineKeyboardButton(
+            "Notifications",
+            callback_data="settings:notifications"
+        )
+    ]
+])
+# Convert settings keyboard to JSONdict
+settings_keyboard_payload = settings_keyboard.to_json()
