@@ -1,4 +1,4 @@
-from .handlers.start import handle_start
+from .handlers.start import handle_start, handle_email_registration, handle_email_login
 from .handlers.help import handle_help
 from .handlers.send import handle_send
 from .handlers.topics import handle_topics
@@ -77,29 +77,15 @@ class ChatHandler:
         
         # Get the params from the message
         msg_id = msg.get("message_id")
-        chat_id: str = msg["chat"]["id"]
+        chat_id: int = msg["chat"]["id"]
         
         match callback_data:
             case "start:register":
-                new_message = (
-                    "Registration functionality not implemented.\n\n"
-                    "This is a work in progress.\n"
-                    "Follow the development:\n"
-                    "https://github.com/tunmi-stom/vantly-backend\n\n"
-                    "See /help for more information.\n\n"
-                )
-                await edit_message(chat_id, new_message, msg_id)
+                await handle_email_registration(chat_id, msg_id)
                 
             case "start:login":
-                new_message = (
-                    "Login functionality not implemented."
-                    "This is a work in progress.\n"
-                    "Follow the development:\n"
-                    "https://github.com/tunmi-stom/vantly-backend\n\n"
-                    "See /help for more information.\n\n"
-                )
-                await edit_message(chat_id, new_message, msg_id)
-            
+                await handle_email_login(chat_id, msg_id)
+                
 async def dispatch(update: dict):
     if "message" in update:
         await ChatHandler.message_handler(update)
