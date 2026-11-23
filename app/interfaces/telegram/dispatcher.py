@@ -3,7 +3,10 @@ from .handlers.help import handle_help
 from .handlers.send import handle_send
 from .handlers.topics import handle_topics
 from .handlers.research import handle_research
-from .handlers.settings import handle_settings
+from .handlers.settings import (
+    handle_settings, handle_research_summary_depth_settings,
+    handle_language_settings, handle_notifictation_settings
+)
 from .handlers.about import handle_about
 
 class Dispatcher:
@@ -85,13 +88,13 @@ class ChatHandler:
                 await handle_email_login(chat_id, msg_id)
             
             case "settings:research-summary-depth":
-                pass
+                await handle_research_summary_depth_settings(chat_id, msg_id)
             
             case "settings:notifications":
-                pass
+                await handle_notifictation_settings(chat_id, msg_id)
             
             case "settings:language":
-                pass
+                await handle_language_settings(chat_id, msg_id)
                 
 async def dispatch(update: dict):
     if "message" in update:
