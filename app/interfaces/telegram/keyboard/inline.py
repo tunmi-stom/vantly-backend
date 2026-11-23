@@ -55,14 +55,14 @@ settings_keyboard = InlineKeyboardMarkup([
     ]
 ])
 # Convert settings keyboard to JSONdict
-settings_keyboard_payload = settings_keyboard.to_json()
+settings_keyboard_payload = settings_keyboard.to_dict()
 
 # RSD Keyboard
 rsd_keyboard = InlineKeyboardMarkup([
     [
         InlineKeyboardButton(
-            "Consise",
-            callback_data="rsd:consise"
+            "Concise",
+            callback_data="rsd:concise"
         ),
         InlineKeyboardButton(
             "Standard",
@@ -75,7 +75,7 @@ rsd_keyboard = InlineKeyboardMarkup([
     ]
 ])
 # Convert Keyboard to JSONDict
-rsd_keyboard_payload = rsd_keyboard.to_json()
+rsd_keyboard_payload = rsd_keyboard.to_dict()
 
 # Language Keyboard
 lang_keyboard = InlineKeyboardMarkup([
@@ -87,7 +87,7 @@ lang_keyboard = InlineKeyboardMarkup([
     ]
 ])
 # Convert Keyboard to JSONDict
-lang_keyboard_payload = lang_keyboard.to_json()
+lang_keyboard_payload = lang_keyboard.to_dict()
 
 # Notification Keyboard
 notification_keyboard = InlineKeyboardMarkup([
@@ -103,4 +103,4 @@ notification_keyboard = InlineKeyboardMarkup([
     ]
 ])
 # Convert Keyboard to JSONDict
-notification_keyboard_payload = notification_keyboard.to_json()
+notification_keyboard_payload = notification_keyboard.to_dict()
