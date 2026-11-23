@@ -6,7 +6,7 @@ from app.interfaces.telegram.keyboard.inline import (
 
 async def handle_settings(chat_id: int):
     message = (
-        "Settings in development.\n"
+        "User Settings.\n"
         "This is a work in progress.\n"
         "See /help for more information.\n"
     )
