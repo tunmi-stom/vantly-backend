@@ -5,8 +5,6 @@ from .handlers.topics import handle_topics
 from .handlers.research import handle_research
 from .handlers.settings import handle_settings
 from .handlers.about import handle_about
-# Handling testing
-from .client import edit_message
 
 class Dispatcher:
     @staticmethod
@@ -85,6 +83,15 @@ class ChatHandler:
                 
             case "start:login":
                 await handle_email_login(chat_id, msg_id)
+            
+            case "settings:research-summary-depth":
+                pass
+            
+            case "settings:notifications":
+                pass
+            
+            case "settings:language":
+                pass
                 
 async def dispatch(update: dict):
     if "message" in update:
