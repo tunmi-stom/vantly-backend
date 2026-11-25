@@ -1,0 +1,23 @@
+name: Keep Vantly Backends Active
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+
+  workflow_dispatch:
+
+jobs:
+  ping-backends:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ping Development Backend
+        run: |
+          curl -fsS --max-time 30 --retry 2 \
+            "${{ vars.RENDER_DEVELOPMENT_URL }}"
+
+      - name: Ping Production Backend
+        if: always()
+        run: |
+          curl -fsS --max-time 30 --retry 2 \
+            "${{ vars.RENDER_PRODUCTION_URL }}"

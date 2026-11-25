@@ -72,7 +72,7 @@ Vantly is being developed with scalability, maintainability, reliability and sec
 | HTTPX | Asynchronous HTTP communication |
 | Telegram Bot API | Telegram integration |
 | Neon | Managed PostgreSQL hosting |
-| Railway | Backend deployment target |
+| Render | Backend deployment target |
 | Git | Version control |
 | GitHub | Source code hosting and collaboration |
 
@@ -230,7 +230,7 @@ Vantly's backend is designed to run as a continuously available web service.
 
 The deployment architecture consists of:
 
-- **Backend Hosting:** Railway.
+- **Backend Hosting:** Render.
 - **Database Hosting:** Neon PostgreSQL.
 - **Source Code Management:** GitHub.
 - **User Interface:** Telegram.
@@ -245,7 +245,7 @@ Vantly follows [Semantic Versioning](https://semver.org/) using the `MAJOR.MINOR
 
 ### Current Release
 
-**v0.1.1 — Initial Start and Help Commands**
+**v0.1.3 — Stable Release - v0.1.3**
 
 This release introduces the initial `/start` and `/help` command handlers.
 
