@@ -21,7 +21,7 @@ def generate_slug(string: str) -> str:
     return string
 
 def generate_random_key():
-    return secrets.token_urlsafe(512)
+    return secrets.token_urlsafe(256)
 
 
 """
