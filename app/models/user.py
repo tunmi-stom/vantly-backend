@@ -1,6 +1,6 @@
 from sqlalchemy import Column, String, Integer
 from sqlalchemy.orm import relationship
-from app.core.database.db_config import Base
+from app.core.database.base import Base
 from app.utils.enums import Subs
 
 class User(Base):

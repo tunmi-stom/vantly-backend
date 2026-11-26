@@ -22,6 +22,10 @@ from .client import send_message, answer_callback_query
 from app.core.logging import logger
 
 
+from .client import send_message, answer_callback_query
+from app.core.logging import logger
+
+
 class Dispatcher:
 
     @staticmethod
