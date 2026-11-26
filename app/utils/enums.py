@@ -1,5 +1,4 @@
 from enum import Enum
-
 class Subs(str, Enum):
     FREE = "Free"
     PRO = "Pro"
@@ -10,7 +9,7 @@ class RsdOps(str, Enum):
     STANDARD = "standard"
     DETAILED = "detailed"
     
-class EnableNotification(bool, Enum):
+class EnableNotification(Enum):
     YES = True
     NO = False
     
