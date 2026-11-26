@@ -18,6 +18,10 @@ from .handlers.settings import (
 )
 from app.core.database.dependency import db_dependency
 
+from .client import send_message, answer_callback_query
+from app.core.logging import logger
+
+
 class Dispatcher:
 
     @staticmethod
@@ -61,6 +65,7 @@ class Dispatcher:
         return await handle_conversation_message(db, telegram_user_id, chat_id, text)
 
 class ChatHandler:
+
     @staticmethod
     async def message_handler(db: Session, update: dict):
         msg = update.get("message")
@@ -113,6 +118,7 @@ class ChatHandler:
         telegram_user_id = data["from"]["id"]
 
         match callback_data:
+
             case "start:register":
                 await Dispatcher.bot_register(db, telegram_user_id, chat_id)
 
