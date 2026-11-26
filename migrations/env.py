@@ -1,9 +1,12 @@
+import os
+from dotenv import load_dotenv
 from logging.config import fileConfig
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from alembic import context
-from app.core.config import settings
 from app.core.database.base import Base
+
+load_dotenv()
 
 # Import all models so Alembic can discover their tables
 import app.models
@@ -20,7 +23,7 @@ if config.config_file_name is not None:
 # Use Vantly's database configuration
 config.set_main_option(
     "sqlalchemy.url",
-    settings.DATABASE_URL.replace("%", "%%")
+    os.getenv("DATABASE_URL").replace("%", "%%")
 )
 
 # add your model's MetaData object here
@@ -35,7 +38,7 @@ target_metadata = Base.metadata
 # my_important_option = config.get_main_option("my_important_option")
 # ... etc.
 def run_migrations_offline() -> None:
-    url = settings.DATABASE_URL
+    url = os.getenv("DATABASE_URL")
 
     context.configure(
         url=url,

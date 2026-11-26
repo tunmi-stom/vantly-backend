@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, BigInteger, ForeignKey
 from sqlalchemy.orm import relationship
-from app.core.database.db_config import Base
+from app.core.database.base import Base
 
 
 class TelegramIdentity(Base):
