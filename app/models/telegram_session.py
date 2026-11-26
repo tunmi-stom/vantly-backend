@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, BigInteger, String, DateTime, JSON
 from sqlalchemy.sql import func
-from app.core.database.db_config import Base
+from app.core.database.base import Base
 
 
 class TelegramSession(Base):

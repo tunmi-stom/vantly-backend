@@ -1,6 +1,6 @@
 from sqlalchemy import String, Column, Integer, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
-from app.core.database.db_config import Base
+from app.core.database.base import Base
 from app.utils.enums import RsdOps, EnableNotification, Language
 
 class Preference(Base):
