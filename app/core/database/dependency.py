@@ -1,7 +1,8 @@
 from fastapi import Depends
 from sqlalchemy.orm import Session
 from typing import Annotated
-from .db_config import get_db, engine, Base
+from .db_config import get_db, engine
+from base import Base
 
 db_dependency = Annotated[Session, Depends(get_db)]
 
