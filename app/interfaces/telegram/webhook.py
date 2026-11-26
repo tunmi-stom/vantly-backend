@@ -1,13 +1,15 @@
-from fastapi import APIRouter, Header, HTTPException, Request, status
+from fastapi import APIRouter, Header, HTTPException, Request, status, Depends
 from app.core.config import settings
 from app.core.logging import logger
 from .dispatcher import dispatch
+from app.core.database.dependency import db_dependency, get_db
 
 router = APIRouter()
 
 @router.post("/webhook")
 async def telegram_webhook(
     request: Request,
+    db: db_dependency = Depends(get_db),
     x_telegram_bot_api_secret_token: str = Header(None)
 ):
     # Validate Telegram's webhook secret.
