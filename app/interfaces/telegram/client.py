@@ -67,3 +67,28 @@ async def edit_message(
             status_code=status.HTTP_502_BAD_GATEWAY,
             detail="Unable to communicate with Telegram."
         )
+
+async def answer_callback_query(callback_query_id: int):
+    payload = {
+        "callback_query_id": callback_query_id
+    }
+        
+    if http.http_client is None:
+        raise RuntimeError("HTTP client has not been initialized.")
+
+    try:
+        res = await http.http_client.post(
+            f"{settings.TELEGRAM_BOT_API}/answerCallbackQuery",
+            json=payload
+        )
+
+        res.raise_for_status()
+
+        result = res.json()
+        
+        if not result.get("ok"):
+            logger.error("Telegram rejected callback.")
+            
+    except HTTPError:
+        logger.exception("Failed to acknowledge Telegram callback.")
+        raise
