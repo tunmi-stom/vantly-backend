@@ -3,7 +3,7 @@ from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 from alembic import context
 from app.core.config import settings
-from app.core.database.db_config import Base
+from app.core.database.base import Base
 
 # Import all models so Alembic can discover their tables
 import app.models
