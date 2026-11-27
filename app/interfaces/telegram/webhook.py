@@ -3,14 +3,14 @@ import json
 from app.core.config import settings
 from app.core.logging import logger
 from .dispatcher import dispatch
-from app.core.database.dependency import db_dependency, get_db
+from app.core.database.dependency import db_dependency
 
 router = APIRouter()
 
 @router.post("/webhook")
 async def telegram_webhook(
     request: Request,
-    db: db_dependency = Depends(get_db),
+    db: db_dependency,
     x_telegram_bot_api_secret_token: str = Header(None)
 ):
     # Validate Telegram's webhook secret.
