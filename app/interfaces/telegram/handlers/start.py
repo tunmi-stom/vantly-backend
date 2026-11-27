@@ -2,6 +2,7 @@ from fastapi import HTTPException
 from sqlalchemy.orm import Session
 from app.interfaces.telegram.client import send_message, edit_message
 from app.interfaces.telegram.keyboard.inline import start_keyboard_payload
+from app.interfaces.telegram.keyboard.reply import user_start_keyboard_payload
 from app.services.user_services import UserService
 from app.utils.helpers import generate_random_key, check_email_str
 from app.schemas.users import UserSignupData, UserLoginData
@@ -110,7 +111,8 @@ async def process_registration_email(
         f"Your pass_key is:\n`{pass_key}`\n\n"
         "Keep this key safe. You will need it when accessing "
         "your account through another interface.\n\n"
-        "Welcome to Vantly!"
+        "Welcome to Vantly!", 
+        reply_markup=user_start_keyboard_payload
     )
 
 
