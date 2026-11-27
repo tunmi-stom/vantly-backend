@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Header, HTTPException, Request, status
+from fastapi import APIRouter, Header, HTTPException, Request, status, Depends
 import json
 from app.core.config import settings
 from app.core.logging import logger
