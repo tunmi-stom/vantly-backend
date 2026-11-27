@@ -30,7 +30,11 @@ async def handle_email_registration(
 ):
     existing_identity = TelegramIdentityService.get_identity(db, telegram_user_id)
     if existing_identity:
-        await send_message(chat_id, "You already have a Vantly account linked to this Telegram account.")
+        await send_message(
+            chat_id, 
+            "You already have a Vantly account linked to this Telegram account.", 
+            reply_markup=user_start_keyboard_payload
+        )
         return
 
     TelegramSessionService.set_state(
@@ -56,7 +60,11 @@ async def handle_email_login(
 ):
     existing_identity = TelegramIdentityService.get_identity(db, telegram_user_id)
     if existing_identity:
-        await send_message(chat_id, "You're already connected to your Vantly account.")
+        await send_message(
+            chat_id, 
+            "You're already connected to your Vantly account.", 
+            reply_markup=user_start_keyboard_payload
+        )
         return
 
     TelegramSessionService.set_state(
